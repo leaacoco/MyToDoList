@@ -9,12 +9,6 @@ import { UserServiceService } from 'src/services/userService/user-service.servic
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  id !: any;
-  constructor(private route : ActivatedRoute, private router : Router, private us : UserServiceService, private httpclient : HttpClient){}
 
-    ngOnInit(): void {
-      this.id = this.route.snapshot.paramMap.get("id")
-      this.us.deleteUserById(this.id)
-      this.router.navigate(['/user'])
     }
-}
+

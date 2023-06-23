@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-delete.component.css']
 })
 export class UserDeleteComponent {
+  id !: any;
+  constructor(private route : ActivatedRoute, private router : Router, private us : UserServiceService, private httpclient : HttpClient){}
 
+    ngOnInit(): void {
+      this.id = this.route.snapshot.paramMap.get("id")
+      this.us.deleteUserById(this.id)
+      this.router.navigate(['/users'])
+}
 }
