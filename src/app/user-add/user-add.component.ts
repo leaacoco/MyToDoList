@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/user/user';
 import { UserServiceService } from 'src/services/userService/user-service.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-add',

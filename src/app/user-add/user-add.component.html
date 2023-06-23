@@ -1,20 +1,22 @@
-<form (ngSubmit)=" adduser()">
-    <div>
-      <label>Nom:</label>
-      <input type="text" [(ngModel)]="newUser.nom" name="nom">
-    </div>
-    <div>
-      <label>Prénom:</label>
-      <input type="text" [(ngModel)]="newUser.prenom" name="prenom">
-    </div>
-    <div>
-      <label>Rôle:</label>
-      <input type="text" [(ngModel)]="newUser.role" name="role">
-    </div>
-    <div>
-      <label>Email:</label>
-      <input type="email" [(ngModel)]="newUser.email" name="email">
-    </div>
-    <button type="submit">Ajouter</button>
-  </form>
-  
+<form class="user-form" (ngSubmit)="adduser()">
+  <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input type="text" [(ngModel)]="newUser.nom" name="nom" id="nom" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input type="text" [(ngModel)]="newUser.prenom" name="prenom" id="prenom" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="role">Rôle:</label>
+    <select name="role" [(ngModel)]="newUser.role" id="role" class="form-control">
+      <option value="admin">Administrateur</option>
+      <option value="utilisateur" selected>Utilisateur</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="newUser.email" name="email" id="email" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

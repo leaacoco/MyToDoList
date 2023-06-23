@@ -1,0 +1,59 @@
+/* Aucun CSS supplémentaire requis */
+
+@media screen and (max-width: 768px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: none;
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .navbar-nav .nav-item {
+      margin-bottom: 10px;
+    }
+  
+    .navbar-toggler {
+      position: relative;
+      display: block;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+    }
+  
+    .navbar-toggler:focus {
+      outline: none;
+    }
+  
+    .navbar-toggler-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px 24px;
+    }
+  
+    .collapsed .navbar-toggler-icon {
+      /* Styles pour le bouton de menu fermé */
+    }
+  
+    .navbar-toggler.collapsed .navbar-toggler-icon {
+      /* Styles pour le bouton de menu ouvert */
+    }
+  
+    .collapsed .navbar-collapse {
+      display: block;
+    }
+  }
+  
