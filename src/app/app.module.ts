@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserDeleteComponent,
+    UserAddComponent,
   ],
   imports: [
     HttpClientModule,

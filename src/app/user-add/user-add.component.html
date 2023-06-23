@@ -1,0 +1,20 @@
+<form (ngSubmit)=" adduser()">
+    <div>
+      <label>Nom:</label>
+      <input type="text" [(ngModel)]="newUser.nom" name="nom">
+    </div>
+    <div>
+      <label>Prénom:</label>
+      <input type="text" [(ngModel)]="newUser.prenom" name="prenom">
+    </div>
+    <div>
+      <label>Rôle:</label>
+      <input type="text" [(ngModel)]="newUser.role" name="role">
+    </div>
+    <div>
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="newUser.email" name="email">
+    </div>
+    <button type="submit">Ajouter</button>
+  </form>
+  
