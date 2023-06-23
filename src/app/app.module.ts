@@ -11,12 +11,11 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
   declarations: [
     AppComponent,
     UsersComponent,
-    UserDeleteComponent
+    UserDeleteComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule,
     AppRoutingModule,
   ],
   providers: [],
