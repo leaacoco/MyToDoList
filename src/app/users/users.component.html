@@ -1,0 +1,30 @@
+    <table class="table">
+        <thead class="thead-dark">
+
+       <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>role</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userArray">
+        <td>{{user.id}}</td>
+        <td>{{user.nom}}</td>
+        <td>{{user.prenom}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+            <!-- Bouton de modification de l'employé -->
+            <button class="btn-modify" [routerLink]="['/user-modif', user.id]">Modifier</button>
+          </td>
+          <td>
+            <!-- Bouton de Suppression de l'employé -->
+            <button class="btn-modify" [routerLink]="['/user-delete', user.id]">Supprimer</button>
+          </td>
+    </tr>
+    </tbody>
+    </table>
