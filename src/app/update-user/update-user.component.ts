@@ -38,4 +38,19 @@ export class UpdateUserComponent {
       });
     });
   }
+  UpdateUser(){
+    this.userService.updateUser(this.idUser,this.userForm.value as userput).subscribe(
+      (Reponse) => {
+        console.log(Reponse)
+        alert("l'employe a ete modifie avec succes")
+        this.router.navigate(['/users'])
+      },
+      (erreur) => {
+        console.log(erreur)
+      }
+    )
+
+  }
+  
 }
+
