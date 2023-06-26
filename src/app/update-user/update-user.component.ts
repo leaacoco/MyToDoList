@@ -39,7 +39,7 @@ export class UpdateUserComponent {
     });
   }
   UpdateUser(){
-    this.userService.updateUser(this.idUser,this.userForm.value as userput).subscribe(
+    this.userService.updateUser(this.idUser,this.userForm.value).subscribe(
       (Reponse) => {
         console.log(Reponse)
         alert("l'employe a ete modifie avec succes")

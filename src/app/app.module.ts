@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserAddComponent } from './user-add/user-add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
@@ -23,6 +23,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
