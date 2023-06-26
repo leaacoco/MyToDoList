@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     UsersComponent,
     UserDeleteComponent,
     UserAddComponent,
+    UpdateUserComponent,
   ],
   imports: [
     HttpClientModule,
