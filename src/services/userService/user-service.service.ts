@@ -18,7 +18,7 @@ export class UserServiceService {
             const users: User[] = [];
             for (const jsonUser of result) {
               const user = new User();
-              user.loadfromjson(jsonUser);
+              user.loadFromJson(jsonUser);
               users.push(user);
             }
             observer.next(users);

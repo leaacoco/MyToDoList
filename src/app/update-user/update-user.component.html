@@ -1,4 +1,5 @@
-<form [formGroup]="userForm" (ngSubmit)="UpdateUser()">
+<div class="user-update-form">
+  <form [formGroup]="userForm" (ngSubmit)="UpdateUser()">
     <label>Nom :</label>
     <input type="text" formControlName="nom">
     <br>
@@ -6,10 +7,11 @@
     <input type="text" formControlName="prenom">
     <br>
     <label>Role :</label>
-    <input type="role" formControlName="role">
+    <input type="text" formControlName="role">
     <br>
     <label>Adresse email :</label>
     <input type="email" formControlName="email">
     <br>
     <button type="submit">Mettre à jour</button>
   </form>
+</div>

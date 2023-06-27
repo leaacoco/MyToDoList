@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <label for="role">Rôle:</label>
-    <select name="role" [(ngModel)]="newUser.role" id="role" class="form-control">
+    <select [(ngModel)]="newUser.role" name="role" id="role" class="form-control">
       <option value="admin">Administrateur</option>
       <option value="utilisateur" selected>Utilisateur</option>
     </select>
@@ -18,5 +18,24 @@
     <label for="email">Email:</label>
     <input type="email" [(ngModel)]="newUser.email" name="email" id="email" class="form-control">
   </div>
-  <button type="submit" class="btn btn-primary">Ajouter</button>
+  <div class="form-group">
+    <label for="password">Mot de passe:</label>
+    <input type="password" [(ngModel)]="newUser.password" name="password" id="password" class="form-control"
+      (focus)="showPasswordRequirements = true" (blur)="showPasswordRequirements = false">
+    <div *ngIf="showPasswordRequirements" class="password-requirements">
+      <ul>
+        <li *ngIf="!isPasswordLengthValid()">Le mot de passe doit contenir au moins 8 caractères.</li>
+        <li *ngIf="!isPasswordContainsUppercase()">Le mot de passe doit contenir au moins une lettre majuscule.</li>
+        <li *ngIf="!isPasswordContainsLowercase()">Le mot de passe doit contenir au moins une lettre minuscule.</li>
+        <li *ngIf="!isPasswordContainsNumber()">Le mot de passe doit contenir au moins un chiffre.</li>
+        <li *ngIf="!isPasswordContainsSpecialCharacter()">Le mot de passe doit contenir au moins un caractère spécial.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirmer le mot de passe:</label>
+    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" id="confirmPassword" class="form-control">
+    <div *ngIf="passwordsMatch()" class="text-danger">Les mots de passe ne correspondent pas.</div>
+  </div>
+  <button type="submit" [disabled]="passwordsMatch() || !isPasswordValid()" class="btn btn-primary">Ajouter</button>
 </form>
