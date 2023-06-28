@@ -1,0 +1,19 @@
+<h2>Connexion</h2>
+
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
+
+<div class="login-form">
+  <div>
+    <label for="username">Email :</label>
+    <input type="text" id="username" [(ngModel)]="username" required>
+  </div>
+
+  <div>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" [(ngModel)]="password" required>
+  </div>
+
+  <button (click)="login()">Se connecter</button>
+</div>

@@ -9,6 +9,9 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { LoginComponent } from './login/login.component';
+import { TachesComponent } from './taches/taches.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     UserDeleteComponent,
     UserAddComponent,
     UpdateUserComponent,
+    LoginComponent,
+    TachesComponent,
+    HomepageComponent,
   ],
   imports: [
     HttpClientModule,

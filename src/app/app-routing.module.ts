@@ -4,12 +4,20 @@ import { UsersComponent } from './users/users.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from 'src/guards/auth.guard';
+import { TachesComponent } from './taches/taches.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
-  {path: 'users', component: UsersComponent},
-  {path: 'user-delete/:id', component: UserDeleteComponent},
-  {path: 'user-add', component: UserAddComponent},
-  {path: 'user-update/:id', component: UpdateUserComponent}
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  { path: 'user-delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard]},
+  { path: 'user-add', component: UserAddComponent},
+  { path: 'user-update/:id', component: UpdateUserComponent, canActivate: [AuthGuard] },
+  { path: 'connexion', component: LoginComponent },
+  { path: 'taches', component: TachesComponent},
+  { path: '', component: HomepageComponent},
+  // Autres routes...
 ];
 
 @NgModule({
@@ -17,5 +25,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
