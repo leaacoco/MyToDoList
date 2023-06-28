@@ -1,9 +1,0 @@
-<div class="task-list">
-  <div class="card" *ngFor="let task of user.taches">
-    <div class="card-body">
-      <h5 class="card-title">{{ task.nom }}</h5>
-      <p class="card-text">{{ task.commentaire }}</p>
-      <p class="card-text">{{ task.status }}</p>
-    </div>
-  </div>
-</div>
