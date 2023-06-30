@@ -1,5 +1,5 @@
 export class User {
-  id: number | undefined;
+  id: number ;
   nom: string | undefined;
   prenom: string | undefined;
   role: string | undefined;
@@ -43,4 +43,5 @@ export class Task {
   nom: string | undefined;
   commentaire: string | undefined;
   status: string | undefined;
+  showComment: boolean = false; // Ajoutez cette ligne
 }

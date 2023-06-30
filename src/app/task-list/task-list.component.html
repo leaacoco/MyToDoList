@@ -1,0 +1,10 @@
+<mat-card *ngFor="let task of tasks" (click)="openCard(task)">
+    <mat-card-header>
+      <mat-card-title>{{ task.nom }}</mat-card-title>
+      <mat-card-subtitle>Status: {{ task.status }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngIf="task.showComment">{{ task.commentaire }}</p>
+    </mat-card-content>
+  </mat-card>
+  

@@ -19,7 +19,7 @@ export class LoginComponent {
       .subscribe(
         () => {
           // Connexion réussie, redirigez l'utilisateur vers la route '/taches'
-          this.router.navigate(['/taches']);
+          this.router.navigate(['/']);
         },
         (error: any) => {
           console.log(error);

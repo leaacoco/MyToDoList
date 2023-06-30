@@ -11,7 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { TasklistComponent } from './tasklist/tasklist.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { TasklistComponent } from './tasklist/tasklist.component';
     UpdateUserComponent,
     LoginComponent,
     HomepageComponent,
-    TasklistComponent,
+    TaskListComponent,
   ],
   imports: [
+    MatCardModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

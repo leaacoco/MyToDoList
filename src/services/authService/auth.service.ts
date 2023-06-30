@@ -1,55 +1,50 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from 'src/models/user/user';
-
+import { UserStateService } from '../Userstate/userstate.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUser: User | null = null; // Stocke les détails de l'utilisateur connecté
-  private apiurl = 'http://localhost:3000/users'; // URL de l'API des utilisateurs
+  private apiurl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userStateService: UserStateService) {}
 
   login(email: string, password: string): Observable<User> {
-    return this.http.get<User[]>(`${this.apiurl}?email=${email}&password=${password}`).pipe(
-      map((users: User[]) => {
-        if (users.length > 0) {
-          // Informations d'identification valides, enregistrez les détails de l'utilisateur dans le localStorage
-          const user = users[0];
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUser = user;
+    return this.http.post<User>(`${this.apiurl}/login`, { email, password })
+      .pipe(
+        map((user: User) => {
+          console.log('Utilisateur connecté :', user.role);
+          this.userStateService.setLoggedIn(true);
+          this.userStateService.setIsAdmin(user.role === 'admin');
           return user;
-        } else {
-          // Informations d'identification invalides, échec de la connexion
-          throw new Error('Identifiants invalides');
-        }
-      })
-    );
+        })
+      );
   }
   
-
-  logout(): void {
-    localStorage.removeItem('currentUser');
-    this.currentUser = null;
-  }
   
 
-  isLoggedIn(): boolean {
-    // Vérifiez si l'utilisateur est actuellement connecté
-    return this.currentUser !== null;
+  logout(): Observable<void> {
+    this.userStateService.setLoggedIn(false);
+    this.userStateService.setIsAdmin(false);
+    return this.http.post<void>(`${this.apiurl}/logout`, {});
   }
 
-  isAdmin(): boolean {
-    // Vérifiez si l'utilisateur actuellement connecté a le rôle administrateur
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    return currentUser.role === 'admin';
+  isLoggedIn(): Observable<boolean> {
+    return this.userStateService.isLoggedIn$;
   }
 
-  getCurrentUser(): User | null {
-    // Renvoie l'utilisateur actuellement connecté
-    return this.currentUser;
+  isAdmin(): Observable<boolean> {
+    return this.userStateService.isAdmin$;
   }
+
+
+  getCurrentUser(): Observable<User | null> {
+    return this.http.get<User | null>(`${this.apiurl}/currentuser`);
+  }
+
+
 }

@@ -13,11 +13,9 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree {
-    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
+    if (this.authService.isLoggedIn()) {
       return true;
     }
-
-    // Redirigez l'utilisateur vers une autre page si l'accès est refusé
-    return this.router.parseUrl('/'); // Remplacez '/accueil' par la route souhaitée
+    return false;
   }
 }
