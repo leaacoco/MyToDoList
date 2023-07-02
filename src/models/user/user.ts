@@ -42,6 +42,7 @@ export class Task {
   id: number | undefined;
   nom: string | undefined;
   commentaire: string | undefined;
-  status: string | undefined;
+  status: string = '';
   showComment: boolean = false; // Ajoutez cette ligne
+  user_id: number | undefined;
 }

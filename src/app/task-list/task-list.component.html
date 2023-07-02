@@ -1,10 +1,33 @@
-<mat-card *ngFor="let task of tasks" (click)="openCard(task)">
+<div class="filter-container">
+  <span class="filter-label">N'afficher que les tâches :</span>
+  <mat-form-field>
+    <mat-select [(value)]="selectedStatus" (selectionChange)="filterTasks(selectedStatus)">
+      <mat-option value="tous">Tous</mat-option>
+      <mat-option value="Annulé">Annulé</mat-option>
+      <mat-option value="En cours">En cours</mat-option>
+      <mat-option value="A faire">À faire</mat-option>
+      <mat-option value="Terminé">Terminé</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="task-list">
+  <mat-card *ngFor="let task of filteredTasks" class="task-card" (click)="openCard(task)">
     <mat-card-header>
-      <mat-card-title>{{ task.nom }}</mat-card-title>
-      <mat-card-subtitle>Status: {{ task.status }}</mat-card-subtitle>
+      <div class="task-title">{{ task.nom | uppercase }}</div>
+      <mat-card-subtitle>
+        <span class="status-sticker" [ngClass]="getStatusClass(task.status)"></span>
+        {{ task.status }}
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p *ngIf="task.showComment">{{ task.commentaire }}</p>
+      <p *ngIf="task.showComment" class="task-comment">{{ task.commentaire }}</p>
     </mat-card-content>
+    <div class="action-buttons">
+      <button mat-raised-button color="warn" class="action-button delete-button" [routerLink]="['/tasks/delete', task.id]">Supprimer</button>
+      <button mat-raised-button color="primary" class="action-button update-button" [routerLink]="['/tasks/update', task.id]">Modifier</button>
+    </div>
   </mat-card>
-  
+</div>
+
+<button mat-raised-button color="primary" class="add-button" routerLink="/add-task">Ajouter une tâche</button>

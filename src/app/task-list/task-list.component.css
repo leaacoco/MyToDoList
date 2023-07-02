@@ -1,0 +1,133 @@
+.task-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .task-card {
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .task-title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .task-comment {
+    font-style: italic;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .action-button {
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+  }
+  
+  .update-button {
+    background-color: orange;
+    color: white;
+    border: none;
+  }
+  
+  .add-button {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .add-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .status-sticker {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  .status-cancelled {
+    background-color: red !important;
+    color: white !important;
+  }
+  
+  .status-in-progress {
+    background-color: orange !important;
+    color: white !important;
+  }
+  
+  .status-to-do {
+    background-color: blue !important;
+    color: white !important;
+  }
+  
+  .status-completed {
+    background-color: green !important;
+    color: white !important;
+  }
+  
+  .filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .filter-label {
+    margin-right: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .task-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  
+  .task-status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-status-label {
+    margin-right: 5px;
+  }
+  
+  .task-status-sticker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  

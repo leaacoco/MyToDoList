@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient, private userStateService: UserStateService) {}
 
   login(email: string, password: string): Observable<User> {
-    return this.http.post<User>(`${this.apiurl}/login`, { email, password })
+    return this.http.post<User>(`${this.apiurl}/login`, { email, password }, { withCredentials: true })
       .pipe(
         map((user: User) => {
           console.log('Utilisateur connecté :', user.role);
@@ -24,6 +24,7 @@ export class AuthService {
         })
       );
   }
+  
   
   
 
@@ -43,7 +44,10 @@ export class AuthService {
 
 
   getCurrentUser(): Observable<User | null> {
-    return this.http.get<User | null>(`${this.apiurl}/currentuser`);
+    const url = `${this.apiurl}/currentuser`
+    const obj = this.http.get<User | null>(url)
+    console.log(obj)
+    return obj;
   }
 
 

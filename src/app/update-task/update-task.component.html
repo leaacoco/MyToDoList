@@ -1,0 +1,37 @@
+<div class="update-task-container">
+    <h2>Modifier la tâche</h2>
+  
+    <form (ngSubmit)="updateTask()">
+      <div class="form-group">
+        <label for="nom">Nom de la tâche</label>
+        <input type="text" id="nom" [(ngModel)]="task.nom" name="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="task.commentaire" name="description"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="status">Statut</label>
+        <select id="status" [(ngModel)]="task.status" name="status">
+          <option value="Annulé">Annulé</option>
+          <option value="A faire">A faire</option>
+          <option value="En cours">En cours</option>
+          <option value="Terminé">Terminé</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="commentaire">Commentaire</label>
+        <textarea id="commentaire" [(ngModel)]="task.commentaire" name="commentaire"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit">Mettre à jour</button>
+      </div>
+    </form>
+  
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+  

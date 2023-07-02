@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { DeleteTaskComponent } from './delete-task/delete-task.component';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
@@ -17,6 +20,11 @@ const routes: Routes = [
   { path: 'connexion', component: LoginComponent },
   { path: 'task', component: TaskListComponent },
   { path: '', component: HomepageComponent },
+  { path: 'add-task', component: AddTaskComponent },
+  { path: 'tasks/delete/:id', component: DeleteTaskComponent },
+  { path: 'tasks/update/:id', component: UpdateTaskComponent }
+
+  
   // Autres routes...
 ];
 

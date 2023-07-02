@@ -1,8 +1,9 @@
 export class Task {
   id: number | undefined;
+  user_id : number | undefined
   nom: string | undefined;
   commentaire: string | undefined;
-  status: string | undefined;
+  status: string;
   showComment: boolean = false; // Ajoutez cette ligne
 
   constructor(id: number, nom: string, commentaire: string, status: string) {

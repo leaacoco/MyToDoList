@@ -1,26 +1,25 @@
 <form class="user-form" (ngSubmit)="adduser()">
   <div class="form-group">
-    <label for="nom">Nom:</label>
-    <input type="text" [(ngModel)]="newUser.nom" name="nom" id="nom" class="form-control">
+    <label class="form-label" for="nom">Nom:</label>
+    <input type="text" [(ngModel)]="newUser.nom" name="nom" id="nom" class="form-control form-input">
   </div>
   <div class="form-group">
-    <label for="prenom">Prénom:</label>
-    <input type="text" [(ngModel)]="newUser.prenom" name="prenom" id="prenom" class="form-control">
+    <label class="form-label" for="prenom">Prénom:</label>
+    <input type="text" [(ngModel)]="newUser.prenom" name="prenom" id="prenom" class="form-control form-input">
   </div>
   <div class="form-group">
-<select name="role" id="role" class="form-control" disabled>
-  <option value="admin">Administrateur</option>
-  <option value="utilisateur" selected>Utilisateur</option>
-</select>
-
+    <select name="role" id="role" class="form-control form-select" disabled>
+      <option value="admin">Administrateur</option>
+      <option value="utilisateur" selected>Utilisateur</option>
+    </select>
   </div>
   <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" [(ngModel)]="newUser.email" name="email" id="email" class="form-control">
+    <label class="form-label" for="email">Email:</label>
+    <input type="email" [(ngModel)]="newUser.email" name="email" id="email" class="form-control form-input">
   </div>
   <div class="form-group">
-    <label for="password">Mot de passe:</label>
-    <input type="password" [(ngModel)]="newUser.password" name="password" id="password" class="form-control"
+    <label class="form-label" for="password">Mot de passe:</label>
+    <input type="password" [(ngModel)]="newUser.password" name="password" id="password" class="form-control form-input"
       (focus)="showPasswordRequirements = true" (blur)="showPasswordRequirements = false">
     <div *ngIf="showPasswordRequirements" class="password-requirements">
       <ul>
@@ -33,8 +32,8 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="confirmPassword">Confirmer le mot de passe:</label>
-    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" id="confirmPassword" class="form-control">
+    <label class="form-label" for="confirmPassword">Confirmer le mot de passe:</label>
+    <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" id="confirmPassword" class="form-control form-input">
     <div *ngIf="passwordsMatch()" class="text-danger">Les mots de passe ne correspondent pas.</div>
   </div>
   <button type="submit" [disabled]="passwordsMatch() || !isPasswordValid()" class="btn btn-primary">Ajouter</button>
