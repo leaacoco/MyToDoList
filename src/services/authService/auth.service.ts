@@ -9,7 +9,7 @@ import { UserStateService } from '../Userstate/userstate.service';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiurl = 'http://localhost:3000';
+  private apiurl = 'http://localhost:8000';
 
   constructor(private http: HttpClient, private userStateService: UserStateService) {}
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User, Task } from 'src/models/user/user';
 
@@ -7,16 +7,20 @@ import { User, Task } from 'src/models/user/user';
   providedIn: 'root'
 })
 export class UserServiceService {
-  private apiurl = 'http://localhost:3000/users';
+  private apiurl = 'http://127.0.0.1:8000/users';
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/ld+json' // ou 'application/json' si vous préférez ce format
+  });
 
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<User[]> {
     return new Observable<User[]>((observer) => {
-      this.httpClient.get(`${this.apiurl}`, { withCredentials: true }).subscribe(
+      this.httpClient.get(`${this.apiurl}`).subscribe(
         (result: any) => {
+          const usersData = result['hydra:member']; // Ciblez la clé "hydra:member"
           const users: User[] = [];
-          for (const jsonUser of result) {
+          for (const jsonUser of usersData) {
             const user = new User();
             user.loadFromJson(jsonUser);
             users.push(user);
@@ -30,14 +34,16 @@ export class UserServiceService {
         }
       );
     });
-  }
+}
+
+
 
   createUser(user: any): Observable<User> {
-    return this.httpClient.post<User>(`${this.apiurl}`, user);
+    return this.httpClient.post<User>(`${this.apiurl}`, user, { headers: this.headers });
   }
 
   updateUser(id: string, data: any): Observable<User> {
-    return this.httpClient.put<User>(`${this.apiurl}/${id}`, data);
+    return this.httpClient.put<User>(`${this.apiurl}/${id}`, data, { headers: this.headers });
   }
 
   getUserById(id: string | null): Observable<User> {

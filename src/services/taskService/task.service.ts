@@ -7,7 +7,7 @@ import { Task } from 'src/models/user/user';
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:3000'; // Mettez à jour cette URL avec l'URL de votre API
+  private apiUrl = 'http://localhost:8000'; // Mettez à jour cette URL avec l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
